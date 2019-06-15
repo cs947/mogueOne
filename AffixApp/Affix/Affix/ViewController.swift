@@ -25,6 +25,9 @@ class ViewController: UIViewController {
     
     var firstLayer: CAGradientLayer!
     var afternoonLayer: CAGradientLayer!
+    var torusGradient: CAGradientLayer!
+    
+    var torus: CAShapeLayer!
     
     let morningC1 = UIColor(red: 0.4, green: 0.2, blue: 0.6, alpha:1.0)
     let morningC2 = UIColor(red: 0.96, green: 0.28, blue: 0.28, alpha:1.0)
@@ -35,13 +38,45 @@ class ViewController: UIViewController {
     let afternoonC3 = UIColor(red: 0.94, green: 0.91, blue: 0.99, alpha:1.0)
     let afternoonC4 = UIColor(red: 0.83, green: 0.72, blue: 1.0, alpha:1.0)
     
+    let initWidth = UIScreen.main.bounds.width
+    let initHeight = UIScreen.main.bounds.height
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true
         
-        //initLayer()
-        secondLayer()
+        initLayer()
+        
+        name = UILabel()
+        name.text = "dummy name"
+        name.textColor = .white
+        name.translatesAutoresizingMaskIntoConstraints = false
+        name.font = UIFont(name: "Avenir-Light", size:42)
+        
+        id = UILabel()
+        id.text = "dummy id"
+        id.textColor = .white
+        id.translatesAutoresizingMaskIntoConstraints = false
+        id.font = UIFont(name: "Avenir-Light", size: 22)
+        
+        rank = UILabel()
+        rank.text = "dummy rank"
+        rank.textColor = .white
+        rank.translatesAutoresizingMaskIntoConstraints = false
+        rank.font = UIFont(name: "Avenir-Light", size: 22)
+        
+        dailyCheckIn = UILabel()
+        dailyCheckIn.text = "Daily Check-In"
+        dailyCheckIn.textColor = .white
+        dailyCheckIn.translatesAutoresizingMaskIntoConstraints = false
+        dailyCheckIn.font = UIFont(name: "Avenir-Light", size: 42)
+        
+        date = UILabel()
+        date.text = "put your date here"
+        date.textColor = .white
+        date.translatesAutoresizingMaskIntoConstraints = false
+        date.font = UIFont(name: "Avenir-Light", size: 22)
         
         time = UILabel()
         time.text = "put your time here"
@@ -49,18 +84,49 @@ class ViewController: UIViewController {
         time.translatesAutoresizingMaskIntoConstraints = false
         time.font = UIFont(name: "Avenir-Light", size: 22)
         
-        let circ = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: 450.0))
-        circ.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
-        circ.layer.cornerRadius = 20
-        //to change the transparency, increase and decrease the alpha value
-        circ.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.7)
+        torus = CAShapeLayer()
         
+        expGradient(ratio: 0.75)
+        
+        let path = UIBezierPath(rect: CGRect(x: initWidth*0.15, y: initHeight*1/3, width: 200, height: 200))
+        path.append(UIBezierPath(ovalIn: CGRect(x: initWidth*0.15, y: initHeight*1/3, width: initWidth * 0.85, height: initWidth * 0.85)).reversing())
+        
+        torus.path = path.cgPath
+        torus.fillColor = UIColor.blue.cgColor
+        torus.frame = self.view.bounds
+        
+        //torusGradient.mask = torus
+        
+        view.addSubview(name)
+        view.addSubview(id)
+        view.addSubview(rank)
+        view.addSubview(dailyCheckIn)
         view.addSubview(time)
         
         setupConstraints()
     }
     
     private func setupConstraints(){
+        NSLayoutConstraint.activate([
+            name.topAnchor.constraint(equalTo: view.topAnchor, constant: initHeight/8),
+            name.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+        NSLayoutConstraint.activate([
+            id.topAnchor.constraint(equalTo: name.bottomAnchor, constant: initHeight/32),
+            id.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ])
+        NSLayoutConstraint.activate([
+            rank.topAnchor.constraint(equalTo: id.bottomAnchor, constant: initHeight/32),
+            rank.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ])
+        NSLayoutConstraint.activate([
+            dailyCheckIn.topAnchor.constraint(equalTo: view.centerYAnchor),
+            dailyCheckIn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ])
+        NSLayoutConstraint.activate([
+            time.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -122),
+            time.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ])
         NSLayoutConstraint.activate([
             time.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -122),
             time.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -79,6 +145,16 @@ class ViewController: UIViewController {
         afternoonLayer.frame = self.view.bounds
         afternoonLayer.colors = [afternoonC1.cgColor, afternoonC2.cgColor, afternoonC3.cgColor, afternoonC4.cgColor]
         self.view.layer.insertSublayer(afternoonLayer, at: 0)
+    }
+    
+    func expGradient(ratio: Float) -> (){
+        torusGradient = CAGradientLayer()
+        torusGradient.frame = CGRect(x: initWidth*0.15, y: initHeight*1/3, width: initWidth * 0.85, height: initWidth * 0.85)
+        torusGradient.colors = [UIColor.clear.cgColor, UIColor.purple.cgColor]
+        torusGradient.position = CGPoint(x: initWidth/2, y: initHeight/2)
+        torusGradient.cornerRadius = (initWidth * 0.85)/2
+        torusGradient.locations = [0.0, ratio] as [NSNumber]
+        self.view.layer.insertSublayer(torusGradient, at: 1)
     }
 
 
