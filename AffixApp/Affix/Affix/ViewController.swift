@@ -43,12 +43,30 @@ class ViewController: UIViewController {
         //initLayer()
         secondLayer()
         
+        time = UILabel()
+        time.text = "put your time here"
+        time.textColor = .white
+        time.translatesAutoresizingMaskIntoConstraints = false
+        time.font = UIFont(name: "Avenir-Light", size: 22)
+        
         let circ = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: 450.0))
         circ.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
         circ.layer.cornerRadius = 20
         //to change the transparency, increase and decrease the alpha value
         circ.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.7)
+        
+        view.addSubview(time)
+        
+        setupConstraints()
     }
+    
+    private func setupConstraints(){
+        NSLayoutConstraint.activate([
+            time.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -122),
+            time.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ])
+    }
+    
     func initLayer(){
         firstLayer = CAGradientLayer()
         firstLayer.frame = self.view.bounds
