@@ -14,11 +14,11 @@ class ViewController: UIViewController {
     var id: UILabel!
     var rank: UILabel!
     
-    var dailyCheckIn: UILabel!
+    var percent: UILabel!
     var date: UILabel!
-    var time: UILabel!
+    var level: UILabel!
     
-    var firstColor: UIButton!
+    var start: UIButton!
     var secondColor: UIButton!
     var thirdColor: UIButton!
     var biometrics: UIButton!
@@ -28,6 +28,10 @@ class ViewController: UIViewController {
     var torusGradient: CAGradientLayer!
     
     var torus: CAShapeLayer!
+    
+    var expRatio = 0.0
+    var userLevel = 1
+    var userName = "dummy Name"
     
     let morningC1 = UIColor(red: 0.4, green: 0.2, blue: 0.6, alpha:1.0)
     let morningC2 = UIColor(red: 0.96, green: 0.28, blue: 0.28, alpha:1.0)
@@ -48,8 +52,12 @@ class ViewController: UIViewController {
         
         initLayer()
         
+        expRatio = 0.75
+        userLevel = 2
+
         name = UILabel()
-        name.text = "dummy name"
+        name.text = userName
+        print(userName)
         name.textColor = .white
         name.translatesAutoresizingMaskIntoConstraints = false
         name.font = UIFont(name: "Avenir-Light", size:42)
@@ -66,11 +74,11 @@ class ViewController: UIViewController {
         rank.translatesAutoresizingMaskIntoConstraints = false
         rank.font = UIFont(name: "Avenir-Light", size: 22)
         
-        dailyCheckIn = UILabel()
-        dailyCheckIn.text = "Daily Check-In"
-        dailyCheckIn.textColor = .white
-        dailyCheckIn.translatesAutoresizingMaskIntoConstraints = false
-        dailyCheckIn.font = UIFont(name: "Avenir-Light", size: 42)
+        percent = UILabel()
+        percent.text = " " + String(Int(expRatio * 100)) + "%"
+        percent.textColor = .white
+        percent.translatesAutoresizingMaskIntoConstraints = false
+        percent.font = UIFont(name: "Avenir-Light", size: 62)
         
         date = UILabel()
         date.text = "put your date here"
@@ -78,30 +86,42 @@ class ViewController: UIViewController {
         date.translatesAutoresizingMaskIntoConstraints = false
         date.font = UIFont(name: "Avenir-Light", size: 22)
         
-        time = UILabel()
-        time.text = "put your time here"
-        time.textColor = .white
-        time.translatesAutoresizingMaskIntoConstraints = false
-        time.font = UIFont(name: "Avenir-Light", size: 22)
+        level = UILabel()
+        level.text = "Level " + String(userLevel)
+        level.textColor = .white
+        level.translatesAutoresizingMaskIntoConstraints = false
+        level.font = UIFont(name: "Avenir-Light", size: 22)
+        
+        start = UIButton()
+        start.setTitle("       Next       ", for: .normal)
+        start.translatesAutoresizingMaskIntoConstraints = false
+        start.setTitleColor(.white, for: .normal)
+        start.reversesTitleShadowWhenHighlighted = true
+        start.titleLabel?.font = UIFont(name: "Avenir-Light", size: 37)
+        start.layer.cornerRadius = 30
+        start.layer.borderColor = UIColor.white.cgColor
+        start.layer.borderWidth = 1
+        start.backgroundColor = UIColor.clear
         
         torus = CAShapeLayer()
         
         expGradient(ratio: 0.75)
         
-        let path = UIBezierPath(rect: CGRect(x: initWidth*0.15, y: initHeight*1/3, width: 200, height: 200))
-        path.append(UIBezierPath(ovalIn: CGRect(x: initWidth*0.15, y: initHeight*1/3, width: initWidth * 0.85, height: initWidth * 0.85)).reversing())
+        let path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: initHeight, height: initHeight))
+        path.append(UIBezierPath(ovalIn: CGRect(x: initWidth*0.15, y: initWidth*0.15, width: initWidth*0.55, height: initWidth*0.55)).reversing())
         
         torus.path = path.cgPath
         torus.fillColor = UIColor.blue.cgColor
         torus.frame = self.view.bounds
         
-        //torusGradient.mask = torus
+        torusGradient.mask = torus
         
         view.addSubview(name)
         view.addSubview(id)
         view.addSubview(rank)
-        view.addSubview(dailyCheckIn)
-        view.addSubview(time)
+        view.addSubview(percent)
+        view.addSubview(level)
+        view.addSubview(start)
         
         setupConstraints()
     }
@@ -112,24 +132,24 @@ class ViewController: UIViewController {
             name.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         NSLayoutConstraint.activate([
-            id.topAnchor.constraint(equalTo: name.bottomAnchor, constant: initHeight/32),
+            id.topAnchor.constraint(equalTo: name.bottomAnchor, constant: initHeight/64),
             id.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
         NSLayoutConstraint.activate([
-            rank.topAnchor.constraint(equalTo: id.bottomAnchor, constant: initHeight/32),
+            rank.topAnchor.constraint(equalTo: id.bottomAnchor, constant: initHeight/64),
             rank.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
         NSLayoutConstraint.activate([
-            dailyCheckIn.topAnchor.constraint(equalTo: view.centerYAnchor),
-            dailyCheckIn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            percent.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -initHeight/16),
+            percent.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
         NSLayoutConstraint.activate([
-            time.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -122),
-            time.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            level.topAnchor.constraint(equalTo: percent.bottomAnchor, constant: initHeight/64),
+            level.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
         NSLayoutConstraint.activate([
-            time.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -122),
-            time.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            start.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -initHeight/4.5),
+            start.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
     }
     
@@ -150,7 +170,8 @@ class ViewController: UIViewController {
     func expGradient(ratio: Float) -> (){
         torusGradient = CAGradientLayer()
         torusGradient.frame = CGRect(x: initWidth*0.15, y: initHeight*1/3, width: initWidth * 0.85, height: initWidth * 0.85)
-        torusGradient.colors = [UIColor.clear.cgColor, UIColor.purple.cgColor]
+        let lightWisteria = UIColor(red: 241/255, green: 169/255, blue: 160/255, alpha: 0.7)
+        torusGradient.colors = [UIColor.clear.cgColor, lightWisteria.cgColor]
         torusGradient.position = CGPoint(x: initWidth/2, y: initHeight/2)
         torusGradient.cornerRadius = (initWidth * 0.85)/2
         torusGradient.locations = [0.0, ratio] as [NSNumber]
