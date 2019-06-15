@@ -13,6 +13,7 @@
 		ECEB8D3022B53F48003F5805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECEB8D2F22B53F48003F5805 /* Assets.xcassets */; };
 		ECEB8D3322B53F48003F5805 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECEB8D3122B53F48003F5805 /* LaunchScreen.storyboard */; };
 		ECEB8D3B22B59994003F5805 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEB8D3A22B59994003F5805 /* loginViewController.swift */; };
+		ECEB8D3D22B5AC96003F5805 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEB8D3C22B5AC96003F5805 /* signUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		ECEB8D3222B53F48003F5805 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECEB8D3422B53F48003F5805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECEB8D3A22B59994003F5805 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		ECEB8D3C22B5AC96003F5805 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				ECEB8D2822B53F47003F5805 /* AppDelegate.swift */,
 				ECEB8D2A22B53F47003F5805 /* ViewController.swift */,
 				ECEB8D3A22B59994003F5805 /* loginViewController.swift */,
+				ECEB8D3C22B5AC96003F5805 /* signUpViewController.swift */,
 				ECEB8D2C22B53F47003F5805 /* Main.storyboard */,
 				ECEB8D2F22B53F48003F5805 /* Assets.xcassets */,
 				ECEB8D3122B53F48003F5805 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				ECEB8D2B22B53F47003F5805 /* ViewController.swift in Sources */,
 				ECEB8D2922B53F47003F5805 /* AppDelegate.swift in Sources */,
+				ECEB8D3D22B5AC96003F5805 /* signUpViewController.swift in Sources */,
 				ECEB8D3B22B59994003F5805 /* loginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
