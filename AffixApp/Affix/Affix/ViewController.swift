@@ -14,6 +14,15 @@ class ViewController: UIViewController {
     var id: UILabel!
     var rank: UILabel!
     
+    var dailyCheckIn: UILabel!
+    var date: UILabel!
+    var time: UILabel!
+    
+    var firstColor: UIButton!
+    var secondColor: UIButton!
+    var thirdColor: UIButton!
+    var biometrics: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
