@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0D9F1F6C70343713E2D27E84 /* Pods_Affix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE96F1602223C38B1E2E86EA /* Pods_Affix.framework */; };
+		B9162A5822B5DFB2002FD0D4 /* BoredApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9162A5722B5DFB2002FD0D4 /* BoredApi.swift */; };
+		B9162A5C22B5E730002FD0D4 /* GoogleMapsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9162A5B22B5E730002FD0D4 /* GoogleMapsAPI.swift */; };
+		B9162A5E22B5E980002FD0D4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9162A5D22B5E980002FD0D4 /* AppState.swift */; };
+		B9162A6022B5E9BD002FD0D4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9162A5F22B5E9BD002FD0D4 /* User.swift */; };
 		ECEB8D2922B53F47003F5805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEB8D2822B53F47003F5805 /* AppDelegate.swift */; };
 		ECEB8D2B22B53F47003F5805 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEB8D2A22B53F47003F5805 /* ViewController.swift */; };
 		ECEB8D2E22B53F47003F5805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECEB8D2C22B53F47003F5805 /* Main.storyboard */; };
@@ -19,6 +23,10 @@
 
 /* Begin PBXFileReference section */
 		AB1D3688630C4F6D0F5B4D1B /* Pods-Affix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Affix.release.xcconfig"; path = "Pods/Target Support Files/Pods-Affix/Pods-Affix.release.xcconfig"; sourceTree = "<group>"; };
+		B9162A5722B5DFB2002FD0D4 /* BoredApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredApi.swift; sourceTree = "<group>"; };
+		B9162A5B22B5E730002FD0D4 /* GoogleMapsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsAPI.swift; sourceTree = "<group>"; };
+		B9162A5D22B5E980002FD0D4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		B9162A5F22B5E9BD002FD0D4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DE96F1602223C38B1E2E86EA /* Pods_Affix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Affix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4405D5241E0C4C08A495A9 /* Pods-Affix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Affix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Affix/Pods-Affix.debug.xcconfig"; sourceTree = "<group>"; };
 		ECEB8D2522B53F47003F5805 /* Affix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Affix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +93,11 @@
 				ECEB8D2822B53F47003F5805 /* AppDelegate.swift */,
 				ECEB8D2A22B53F47003F5805 /* ViewController.swift */,
 				ECEB8D3A22B59994003F5805 /* loginViewController.swift */,
+				B9162A5722B5DFB2002FD0D4 /* BoredApi.swift */,
+				B9162A5D22B5E980002FD0D4 /* AppState.swift */,
+				B9162A5F22B5E9BD002FD0D4 /* User.swift */,
 				ECEB8D3C22B5AC96003F5805 /* signUpViewController.swift */,
+				B9162A5B22B5E730002FD0D4 /* GoogleMapsAPI.swift */,
 				ECEB8D2C22B53F47003F5805 /* Main.storyboard */,
 				ECEB8D2F22B53F48003F5805 /* Assets.xcassets */,
 				ECEB8D3122B53F48003F5805 /* LaunchScreen.storyboard */,
@@ -215,6 +227,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECEB8D2B22B53F47003F5805 /* ViewController.swift in Sources */,
+				B9162A5822B5DFB2002FD0D4 /* BoredApi.swift in Sources */,
+				B9162A5E22B5E980002FD0D4 /* AppState.swift in Sources */,
+				B9162A5C22B5E730002FD0D4 /* GoogleMapsAPI.swift in Sources */,
+				B9162A6022B5E9BD002FD0D4 /* User.swift in Sources */,
 				ECEB8D2922B53F47003F5805 /* AppDelegate.swift in Sources */,
 				ECEB8D3D22B5AC96003F5805 /* signUpViewController.swift in Sources */,
 				ECEB8D3B22B59994003F5805 /* loginViewController.swift in Sources */,
