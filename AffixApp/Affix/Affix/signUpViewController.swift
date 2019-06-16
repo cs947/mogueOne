@@ -51,14 +51,14 @@ class signUpViewController: UIViewController{
         name.text = "Name: "
         name.textColor = .white
         name.translatesAutoresizingMaskIntoConstraints = false
-        name.font = UIFont(name: "Avenir-Light", size: 25)
+        name.font = UIFont(name: "Avenir-Light", size: 27)
         
         nameText = UITextField()
         nameText.textColor = .black
-        nameText.font = UIFont(name: "Avenir-Light", size: 25)
+        nameText.font = UIFont(name: "Avenir-Light", size: 27)
         nameText.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
         nameText.returnKeyType = .done
-        nameText.placeholder = " Enter name...     "
+        nameText.placeholder = "Enter name...   "
         nameText.textAlignment = NSTextAlignment.center
         nameText.translatesAutoresizingMaskIntoConstraints = false
         
@@ -66,14 +66,14 @@ class signUpViewController: UIViewController{
         phoneNum.text = "Cell Number: "
         phoneNum.textColor = .white
         phoneNum.translatesAutoresizingMaskIntoConstraints = false
-        phoneNum.font = UIFont(name: "Avenir-Light", size: 25)
+        phoneNum.font = UIFont(name: "Avenir-Light", size: 27)
         
         phoneNumText = UITextField()
         phoneNumText.textColor = .black
-        phoneNumText.font = UIFont(name: "Avenir-Light", size: 25)
+        phoneNumText.font = UIFont(name: "Avenir-Light", size: 27)
         phoneNumText.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
         phoneNumText.returnKeyType = .done
-        phoneNumText.placeholder = " Enter #...       "
+        phoneNumText.placeholder = "Enter #...   "
         phoneNumText.textAlignment = NSTextAlignment.center
         phoneNumText.translatesAutoresizingMaskIntoConstraints = false
         
@@ -81,14 +81,14 @@ class signUpViewController: UIViewController{
         email.text = "Email: "
         email.textColor = .white
         email.translatesAutoresizingMaskIntoConstraints = false
-        email.font = UIFont(name: "Avenir-Light", size: 25)
+        email.font = UIFont(name: "Avenir-Light", size: 27)
         
         emailText = UITextField()
         emailText.textColor = .black
-        emailText.font = UIFont(name: "Avenir-Light", size: 25)
+        emailText.font = UIFont(name: "Avenir-Light", size: 27)
         emailText.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
         emailText.returnKeyType = .done
-        emailText.placeholder = " Enter email...       "
+        emailText.placeholder = "Enter email...    "
         emailText.textAlignment = NSTextAlignment.center
         emailText.translatesAutoresizingMaskIntoConstraints = false
         
@@ -96,30 +96,30 @@ class signUpViewController: UIViewController{
         height.text = "height (in): "
         height.textColor = .white
         height.translatesAutoresizingMaskIntoConstraints = false
-        height.font = UIFont(name: "Avenir-Light", size: 25)
+        height.font = UIFont(name: "Avenir-Light", size: 27)
         
         heightText = UITextField()
         heightText.textColor = .black
-        heightText.font = UIFont(name: "Avenir-Light", size: 25)
+        heightText.font = UIFont(name: "Avenir-Light", size: 27)
         heightText.returnKeyType = .done
         heightText.textAlignment = NSTextAlignment.center
         heightText.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
-        heightText.placeholder = " Enter height.. "
+        heightText.placeholder = "Enter height..."
         heightText.translatesAutoresizingMaskIntoConstraints = false
         
         weight = UILabel()
         weight.text = "weight (lb): "
         weight.textColor = .white
         weight.translatesAutoresizingMaskIntoConstraints = false
-        weight.font = UIFont(name: "Avenir-Light", size: 25)
+        weight.font = UIFont(name: "Avenir-Light", size: 27)
         
         weightText = UITextField()
         weightText.textColor = .black
-        weightText.font = UIFont(name: "Avenir-Light", size: 25)
+        weightText.font = UIFont(name: "Avenir-Light", size: 27)
         weightText.returnKeyType = .done
         weightText.textAlignment = NSTextAlignment.center
         weightText.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
-        weightText.placeholder = " Enter weight... "
+        weightText.placeholder = "Enter weight... "
         weightText.translatesAutoresizingMaskIntoConstraints = false
         
         enter = UIButton()
@@ -152,17 +152,17 @@ class signUpViewController: UIViewController{
     }
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            signUpTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: initHeight/8),
+            signUpTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: initHeight/6),
             signUpTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
         
         NSLayoutConstraint.activate([
-            name.topAnchor.constraint(equalTo: signUpTitle.bottomAnchor, constant: initHeight/25),
+            name.topAnchor.constraint(equalTo: signUpTitle.bottomAnchor, constant: initHeight/15),
             name.leftAnchor.constraint(equalTo: view.leftAnchor, constant: initWidth/10),
             ])
         
         NSLayoutConstraint.activate([
-            nameText.topAnchor.constraint(equalTo: signUpTitle.bottomAnchor, constant: initHeight/25),
+            nameText.topAnchor.constraint(equalTo: signUpTitle.bottomAnchor, constant: initHeight/15),
             nameText.leftAnchor.constraint(equalTo: name.rightAnchor, constant: initWidth/27),
             ])
         
@@ -206,7 +206,7 @@ class signUpViewController: UIViewController{
             ])
         
         NSLayoutConstraint.activate([
-            enter.topAnchor.constraint(equalTo: weightText.bottomAnchor, constant: initHeight/27),
+            enter.topAnchor.constraint(equalTo: weightText.bottomAnchor, constant: initHeight/8),
             enter.centerXAnchor.constraint(equalTo: view.centerXAnchor)
             ])
         

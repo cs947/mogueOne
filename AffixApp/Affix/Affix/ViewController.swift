@@ -170,11 +170,11 @@ class ViewController: UIViewController {
     func expGradient(ratio: Float) -> (){
         torusGradient = CAGradientLayer()
         torusGradient.frame = CGRect(x: initWidth*0.15, y: initHeight*1/3, width: initWidth * 0.85, height: initWidth * 0.85)
-        let lightWisteria = UIColor(red: 241/255, green: 169/255, blue: 160/255, alpha: 0.7)
+        let lightWisteria = UIColor(red: 241/255, green: 190/255, blue: 190/255, alpha: 0.7)
         torusGradient.colors = [UIColor.clear.cgColor, lightWisteria.cgColor]
         torusGradient.position = CGPoint(x: initWidth/2, y: initHeight/2)
         torusGradient.cornerRadius = (initWidth * 0.85)/2
-        torusGradient.locations = [0.0, ratio] as [NSNumber]
+        torusGradient.locations = [0.0, 1-ratio] as [NSNumber]
         self.view.layer.insertSublayer(torusGradient, at: 1)
     }
 
